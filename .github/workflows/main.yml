@@ -1,21 +1,17 @@
-name: angular-build app
+name: system-check
 
 on:
   push:
-    branches: [ main ]
 
 jobs:
-  build-angular-app:
+  info:
     runs-on: ubuntu-latest
 
     steps:
-     - name: checkout command
-       uses: actions/checkout@v4
-     - name: setup node js
-       uses: actions/setup-node@v4
-       with: 
-         node-version: 22.x
-     - name: install npm
-       run: npm install
-     - name: build angular app
-       run: npm run build
+      - run:  |
+           echo "system info"
+           uname -a
+           df -h
+           free -m
+
+ 
